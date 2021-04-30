@@ -70,7 +70,6 @@ while True:
 
         # check which fingers are up
         fingers = detector.fingersUp()
-        # print(fingers)
 
         # if first three fingers are up -> selection mode
         if fingers[1] and fingers[2]:
@@ -94,11 +93,7 @@ while True:
                 elif 500 < yi < 720:
                     drawColor = black
                     menubar = frames[3]
-        # # if two fingers are up -> hover mode
-        # elif fingers[1] and fingers[2]:
-        #     xp, yp = 0, 0
-        #     print("Hover Mode")
-        # if index finger is up and middle finger is down -> drawing mode
+
         elif fingers[1] and fingers[2]==False:
             cv2.circle(img, (xi, yi), 15, drawColor, cv2.FILLED)
             print("Drawing Mode")
@@ -117,17 +112,25 @@ while True:
             cv2.line(img, (xp, yp), (xi, yi), drawColor, brushSize)
             cv2.line(canvas, (xp, yp), (xi, yi), drawColor, brushSize)
             xp, yp = xi, yi
-
+    # # combine canvas with web-cam feed
+    # # convert canvas to gray scale
     imgGray = cv2.cvtColor(canvas, cv2.COLOR_BGR2GRAY)
+    # # invert the coloring of the gray scale canvas
     _, imgInv = cv2.threshold(imgGray, 50, 255, cv2.THRESH_BINARY_INV)
+    # # convert it back to BGR inorder to make the dimensions right
     imgInv = cv2.cvtColor(imgInv, cv2.COLOR_GRAY2BGR)
+    # # Bit wise AND of this with Image.
+    # # Basically, all the places where something was drawn becomes black in the web-cam feed
     img = cv2.bitwise_and(img, imgInv)
+    # # Bit wise OR of this with the original canvas.
+    # # The blacked out regions are re-filled with the corresponding drawing on the canvas
     img = cv2.bitwise_or(img, canvas)
+
     # setting the menubar frame
     img[0:720, 1130:1280] = menubar
-    # combine canvas with web-cam feed
-    # img = cv2.addWeighted(img, 0.5, canvas, 0.5, 0)
+
     # display the updated web-cam feed
     cv2.imshow("Image", img)
     # cv2.imshow("Canvas", canvas)
+
     cv2.waitKey(1)
