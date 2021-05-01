@@ -93,6 +93,10 @@ while True:
                 elif 500 < yi < 720:
                     drawColor = black
                     menubar = frames[3]
+            elif xi < 125 and yi < 125:
+                print("Clear")
+                # clear screen by re-initializing canvas
+                canvas = np.zeros((720, 1280, 3), np.uint8)
 
         elif fingers[1] and fingers[2]==False:
             cv2.circle(img, (xi, yi), 15, drawColor, cv2.FILLED)
@@ -128,9 +132,8 @@ while True:
 
     # setting the menubar frame
     img[0:720, 1130:1280] = menubar
-
+    img[0:125, 0:125] = frames[4]
     # display the updated web-cam feed
-    cv2.imshow("Image", img)
-    # cv2.imshow("Canvas", canvas)
+    cv2.imshow("paintAir", img)
 
     cv2.waitKey(1)
