@@ -1,3 +1,1 @@
 # paintAir
-
-Credits: Murtaza Hassan
