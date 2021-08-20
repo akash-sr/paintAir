@@ -25,7 +25,7 @@ A virtual painter to draw using hand-gestures with the help of web-cam feed. It 
 - Multi-color support.
 - Pixel-wise erasing and clear-all functionality.
 
-[Back To The Top](#read-me-template)
+[Back To The Top](#paintair)
 
 ---
 
@@ -62,7 +62,7 @@ In the "Selection Mode", point to the "Clear-All" tool in the menu bar.
 
 ![clear-demo](assets/demo-clear-1.gif)
 
-[Back To The Top](#read-me-template)
+[Back To The Top](#paintair)
 
 ---
 
@@ -81,7 +81,7 @@ In the "Selection Mode", point to the "Clear-All" tool in the menu bar.
 - Run the app : ```py -3.6 -m paintAir.py``` (Since I had multiple versions of Python installed on my system, I've explicitly used ```"py -3.6"``` instead of ```"python"```)
 - Start Doodling !
 
-[Back To The Top](#read-me-template)
+[Back To The Top](#paintair)
 
 ---
 
