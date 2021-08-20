@@ -71,16 +71,16 @@ while True:
         # check which fingers are up
         fingers = detector.fingersUp()
 
-        # if first three fingers are up -> selection mode
+        # if first three fingers are up -> Editing mode
         if fingers[1] and fingers[2]:
             cv2.rectangle(img, (xi, yi-25), (xm, ym+25), drawColor, cv2.FILLED )
-            print("Selection Mode")
+            print("Editing Mode")
             xp, yp = 0, 0
             if xi > 1100:
                 # red color
                 if 60 < yi < 175:
                     drawColor = red
-                    menubar = frames[0] 
+                    menubar = frames[0]
                 # blue color
                 elif 195 < yi < 300:
                     drawColor = blue
@@ -108,7 +108,7 @@ while True:
                 ink = 0
             else:
                 brushSize = brushThickness
-                
+
             # initialize xp and yp for the first drawing frame
             if xp==0 and yp==0:
                 xp, yp = xi, yi
