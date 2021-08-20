@@ -18,7 +18,7 @@
 
 ## Description
 
-A virtual painter to draw using hand-gestures with the help of web-cam feed. It uses a custom hand-tracking module implemented with the MediaPipe library to detect hand-gestures and OpenCV to combine the drawing to the web-cam feed.
+A virtual painter to draw using hand-gestures. It uses a custom hand-tracking module implemented with the MediaPipe library to detect hand-gestures and OpenCV to combine the drawing to the web-cam feed.
 
 ### Features
 
@@ -33,24 +33,24 @@ A virtual painter to draw using hand-gestures with the help of web-cam feed. It 
 
 ## Demo
 
+#### Tool Selection
+
+In the "Selection Mode", move the hand such that the pointer formed by the first two fingers hovers over the icon of the required tool. The selected tool will be highlighted accordingly.
+
+![selection-demo](assets/demo-tool-selection-1.gif)
+
 #### Drawing
 
 In the "Editing Mode", use the tip of the index finger to make the desired strokes. 
 
 ![drawing-demo](assets/demo-drawing-1.gif)
 
-#### Tool Selection
-
-In the "Selection Mode", move the hand such that the pointer formed by the first two fingers hovers overt the icon of the required tool.
-
-![selection-demo](assets/demo-tool-selection-1.gif)
-
 #### Erasing
 
 ##### Pixel-wise erasing
 
 - Enter the "Selection Mode". 
-- Choose the "Eraser" tool from the menu as shown above. 
+- Choose the "Eraser" tool from the menu-bar as shown above. 
 - Enter the "Editing Mode". 
 - Use the tip of the index finger to erase the required region. 
 
@@ -58,7 +58,7 @@ In the "Selection Mode", move the hand such that the pointer formed by the first
 
 ##### Clear-All
 
-In the "Selection Mode", point to the "Clear-All" tool in the menu bar. 
+In the "Selection Mode", hover over the "Clear-All" icon in the top-left corner. 
 
 ![clear-demo](assets/demo-clear-1.gif)
 
