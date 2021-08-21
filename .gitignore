@@ -168,4 +168,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Virtual Environment
+virtualenv
+
 # End of https://www.toptal.com/developers/gitignore/api/python,windows

@@ -34,7 +34,7 @@ brushThickness = 15
 # set eraser size
 eraserThickness = 50
 
-# set drawing start points
+# set Editing start points
 xp, yp = 0, 0
 
 # set color codes
@@ -71,10 +71,10 @@ while True:
         # check which fingers are up
         fingers = detector.fingersUp()
 
-        # if first three fingers are up -> Editing mode
+        # if first three fingers are up -> Selection mode
         if fingers[1] and fingers[2]:
             cv2.rectangle(img, (xi, yi-25), (xm, ym+25), drawColor, cv2.FILLED )
-            print("Editing Mode")
+            print("Selection Mode")
             xp, yp = 0, 0
             if xi > 1100:
                 # red color
@@ -100,7 +100,7 @@ while True:
 
         elif fingers[1] and fingers[2]==False:
             cv2.circle(img, (xi, yi), 15, drawColor, cv2.FILLED)
-            print("Drawing Mode")
+            print("Editing Mode")
 
             # if it's an eraser, change thickness
             if drawColor == black:
@@ -109,7 +109,7 @@ while True:
             else:
                 brushSize = brushThickness
 
-            # initialize xp and yp for the first drawing frame
+            # initialize xp and yp for the first Editing frame
             if xp==0 and yp==0:
                 xp, yp = xi, yi
 
@@ -127,7 +127,7 @@ while True:
     # # Basically, all the places where something was drawn becomes black in the web-cam feed
     img = cv2.bitwise_and(img, imgInv)
     # # Bit wise OR of this with the original canvas.
-    # # The blacked out regions are re-filled with the corresponding drawing on the canvas
+    # # The blacked out regions are re-filled with the corresponding Editing on the canvas
     img = cv2.bitwise_or(img, canvas)
 
     # setting the menubar frame
